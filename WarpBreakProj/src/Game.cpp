@@ -3,7 +3,7 @@
 #include "Utility.h"
 
 Game::Game() :
-	m_window{ sf::VideoMode{ 1920, 1080, 32 }, "Warp Break"},
+	m_window{ sf::VideoMode{ 1920, 1080, 32U }, "Warp Break", sf::Style::Titlebar | sf::Style::Close },
 	m_exitGame{ false },
 	m_currentMenu(Menu::StateSplash),
 	m_mainMenu(m_resourceMng.getFont(FontID::ARIBLK), m_window, m_currentMenu, m_options),
@@ -125,7 +125,7 @@ void Game::update(sf::Time t_deltaTime)
 		m_changingMenu = m_licenseScreen.getChangeMenu();
 		m_licenseScreen.resetChangeMenu();
 		break;
-	case StateMainMenu:
+	case Menu::StateMainMenu:
 		if (m_changingMenu)
 		{
 			m_mainMenu.transitionIn();
@@ -134,7 +134,7 @@ void Game::update(sf::Time t_deltaTime)
 		m_changingMenu = m_mainMenu.getChangeMenu();
 		m_mainMenu.resetChangeMenu();
 		break;
-	case StateOptions:
+	case Menu::StateOptions:
 		if (m_changingMenu)
 		{
 			m_optionMenu.transitionIn();
@@ -143,7 +143,7 @@ void Game::update(sf::Time t_deltaTime)
 		m_changingMenu = m_optionMenu.getChangeMenu();
 		m_optionMenu.resetChangeMenu();
 		break;
-	case StateGameplay:
+	case Menu::StateGameplay:
 		if (m_changingMenu)
 		{
 			m_gameScreen.restart();
@@ -152,7 +152,7 @@ void Game::update(sf::Time t_deltaTime)
 		m_changingMenu = m_gameScreen.getChangeMenu();
 		m_gameScreen.resetChangeMenu();
 		break;
-	case StateEnd:
+	case Menu::StateEnd:
 		if (m_changingMenu)
 		{
 			m_endScreen.transitionIn();
@@ -161,7 +161,7 @@ void Game::update(sf::Time t_deltaTime)
 		m_changingMenu = m_endScreen.getChangeMenu();
 		m_endScreen.resetChangeMenu();
 		break;
-	case StateCredits:
+	case Menu::StateCredits:
 		if (m_changingMenu)
 		{
 			m_creditsScreen.transitionIn();
@@ -170,7 +170,7 @@ void Game::update(sf::Time t_deltaTime)
 		m_changingMenu = m_creditsScreen.getChangeMenu();
 		m_creditsScreen.resetChangeMenu();
 		break;
-	case StateQuit:
+	case Menu::StateQuit:
 		m_exitGame = true;
 		break;
 	default:
@@ -190,28 +190,28 @@ void Game::render()
 
 	switch (m_currentMenu)
 	{
-	case StateSplash:
+	case Menu::StateSplash:
 		m_splashScreen.render(m_window);
 		break;
-	case StateLicense:
+	case Menu::StateLicense:
 		m_licenseScreen.render(m_window);
 		break;
-	case StateMainMenu:
+	case Menu::StateMainMenu:
 		m_mainMenu.render(m_window);
 		break;
-	case StateOptions:
+	case Menu::StateOptions:
 		m_optionMenu.render(m_window);
 		break;
-	case StateGameplay:
+	case Menu::StateGameplay:
 		m_gameScreen.render(m_window);
 		break;
-	case StateEnd:
-		m_endScreen.render(m_window);
+	case Menu::StateEnd:
+		m_endScreen.render(m_window, m_gameScreen.getTimerText());
 		break;
-	case StateCredits:
+	case Menu::StateCredits:
 		m_creditsScreen.render(m_window);
 		break;
-	case StateQuit:
+	case Menu::StateQuit:
 		break;
 	default:
 		break;
@@ -224,26 +224,26 @@ void Game::processScreenEvents()
 {
 	switch (m_currentMenu)
 	{
-	case StateSplash:
+	case Menu::StateSplash:
 		m_splashScreen.processEvents(m_controller);
 		break;
-	case StateLicense:
+	case Menu::StateLicense:
 		m_licenseScreen.processEvents(m_controller);
 		break;
-	case StateMainMenu:
+	case Menu::StateMainMenu:
 		m_mainMenu.processEvents(m_controller);
 		break;
-	case StateOptions:
+	case Menu::StateOptions:
 		m_optionMenu.processEvents(m_controller);
 		break;
-	case StateCredits:
+	case Menu::StateCredits:
 		m_creditsScreen.processEvents(m_controller);
 		break;
-	case StateGameplay:
+	case Menu::StateGameplay:
 		break;
-	case StateEnd:
+	case Menu::StateEnd:
 		break;
-	case StateQuit:
+	case Menu::StateQuit:
 		break;
 	default:
 		break;

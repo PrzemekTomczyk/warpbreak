@@ -66,9 +66,10 @@ void EndScreen::update(sf::Time t_deltaTime)
 	}
 }
 
-void EndScreen::render(sf::RenderWindow & t_window)
+void EndScreen::render(sf::RenderWindow & t_window, sf::Text& t_timerText)
 {
 	t_window.draw(m_endSprite, m_renderState);
+	t_window.draw(t_timerText);
 }
 
 bool EndScreen::getChangeMenu()

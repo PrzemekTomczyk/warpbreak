@@ -39,7 +39,7 @@ public:
 	/// function that renders all drawable objects
 	/// </summary>
 	/// <param name="t_window">reference to the main window</param>
-	void render(sf::RenderWindow & t_window);
+	void render(sf::RenderWindow & t_window, sf::Text& t_timerText);
 
 	bool getChangeMenu();
 

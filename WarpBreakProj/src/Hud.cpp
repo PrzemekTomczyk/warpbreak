@@ -17,7 +17,7 @@ Hud::Hud(ResourceManager & t_resources) :
 	m_gameTimer.start();
 
 	m_lives.setPosition(25, 0);
-	m_timer.setPosition(SCREEN_SIZE.x * 0.5f, 0);
+	m_timer.setPosition(SCREEN_SIZE.x * 0.5f - m_timer.getGlobalBounds().width / 2.0f, 0);
 	m_orbCharge.setPosition(28, 40);
 	m_orbChargeBorder.setPosition(28, 40);
 }
@@ -58,4 +58,9 @@ void Hud::render(sf::RenderWindow & t_window, bool t_hasOrb)
 		t_window.draw(m_orbCharge);
 		t_window.draw(m_orbChargeBorder);
 	}
+}
+
+sf::Text& Hud::getTimerText()
+{
+	return m_timer;
 }

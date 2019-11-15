@@ -213,6 +213,11 @@ void GameScreen::restart()
 	m_minimap.init();
 }
 
+sf::Text& GameScreen::getTimerText()
+{
+	return m_hud.getTimerText();
+}
+
 void GameScreen::createWorld2D()
 {
 	if (m_firstInit)

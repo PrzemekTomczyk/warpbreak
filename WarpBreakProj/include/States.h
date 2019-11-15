@@ -1,6 +1,6 @@
 #pragma once
 
-enum Menu
+enum class Menu
 {
 	StateSplash,
 	StateLicense,

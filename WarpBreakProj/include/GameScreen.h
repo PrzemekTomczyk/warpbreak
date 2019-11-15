@@ -71,6 +71,7 @@ public:
 
 	void restart();
 
+	sf::Text& getTimerText();
 private:
 
 	const int MAX_OBSTACLES = 10; // TO-DO: Make obstacle class for terrain

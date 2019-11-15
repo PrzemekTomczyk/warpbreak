@@ -13,9 +13,11 @@ public:
 
 	void update(float t_chargeScale, int t_lives, float t_deltaTime);
 	void reset();
-	void render(sf::RenderWindow & t_window, bool t_hasOrb);
+	void render(sf::RenderWindow& t_window, bool t_hasOrb);
+	sf::Text& getTimerText();
+
 private:
-	ResourceManager & m_resource;
+	ResourceManager &m_resource;
 
 	thor::StopWatch m_gameTimer;
 
