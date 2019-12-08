@@ -17,6 +17,8 @@
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
+[Ss]tatic/
+[Ss]tatic-Debug/
 x64/
 x86/
 bld/
