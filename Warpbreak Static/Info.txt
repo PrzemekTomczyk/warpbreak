@@ -1,1 +1,0 @@
-This version can be ran on any PC without VS and SFML installed on it. To update, replace the exe with newly built one in STATIC CONFIGURATION
