@@ -8,6 +8,8 @@ Project was entered into [Games Fleadh](https://gamesfleadh.ie/) and received "B
 
 300+ hours have been put into this project between 2 developers.
 
+![Game Clip](https://github.com/PrzemekTomczyk/warpbreak/blob/master/shortgif.gif)
+
 ### Libraries used:
   - SFML - Multimedia library for Graphics etc
   - Box2D - Physics and simulations
